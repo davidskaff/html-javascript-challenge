@@ -21,9 +21,9 @@ d3.json(url).then(function(data) {
 });
 
 function buildCharts(sample) {
-    d3.json(url).then(function(data) {
+    d3.json(url).then(function(sampleData) {
         // Filter the data for the selected sample
-        let sampleData = data.samples.filter(obj => obj.id == sample)[0];
+        let filteredSampleData = sampleData.samples.filter(obj => obj.id == sample)[0];
 
         // Sort the data and slice it for the top 10 OTUs
         let otuIds = sampleData.otu_ids.slice(0, 10).map(otuId => `OTU ${otuId}`).reverse();
@@ -84,9 +84,9 @@ function buildCharts(sample) {
 }
 
 function displayMetadata(sample) {
-    d3.json(url).then(function(data) {
+    d3.json(url).then(function(sampleData) {
         // Filter the metadata for the selected sample
-        let metadata = data.metadata.filter(obj => obj.id == sample)[0];
+        let metadata = sampleData.metadata.filter(obj => obj.id == sample)[0];
 
         // Select the metadata div
         let metadataDiv = d3.select("#sample-metadata");
