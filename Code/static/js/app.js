@@ -64,14 +64,14 @@ function buildCharts(sample) {
 
        // Create the trace for the bubble chart
        let traceBubble = {
-           x: sampleData.otu_ids,
-           y: sampleData.sample_values,
-           text: sampleData.otu_labels,
-           mode: 'markers',
-           marker: {
-               size: sampleData.sample_values,
-               color: sampleData.otu_ids,
-               colorscale: 'Earth'
+        x: filteredSampleData.otu_ids,
+        y: filteredSampleData.sample_values,
+        text: filteredSampleData.otu_labels,
+        mode: 'markers',
+        marker: {
+            size: filteredSampleData.sample_values.map(d => d * 1.25), // Scale the sample_values
+            color: filteredSampleData.otu_ids,
+            colorscale: 'Earth'
            }
        };
 
